@@ -1,0 +1,65 @@
+body {
+  display: flex;
+  height: 90vh;
+  padding: 0 auto;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+  justify-content: center;
+  background-color: #fff0e1;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  color: #374957;
+}
+
+input {
+  border: 2px solid #374957;
+  border-radius: 15px;
+  padding: 12px;
+  width: 250px;
+  background-color: #fff0e1;
+}
+
+button {
+  border: 2px solid #374957;
+  border-radius: 15px;
+  padding: 12px;
+  width: 280px;
+  background-color: #374957;
+  color: #fff0e1;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+p {
+  font-weight: 200;
+  font-size: small;
+}
+
+a {
+  color: #374957;
+  font-weight: bolder;
+}
+
+.hero {
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  gap: 15px;
+}
