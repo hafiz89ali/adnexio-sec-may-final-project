@@ -3,10 +3,6 @@ body {
   display: flex;
   height: 100vh;
   padding: 0 auto;
-  align-items: center;
-  align-content: center;
-  justify-items: center;
-  justify-content: center;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   color: #374957;
 }
@@ -16,12 +12,8 @@ body {
   background-color: white;
   border-radius: 15px;
   width: 90vh;
-  height: 90vh;
+  height: fit-content;
   flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  gap: 20px;
 }
 
 .content {
@@ -31,6 +23,5 @@ body {
   justify-content: center;
   align-content: center;
   align-items: center;
-  padding: 30px;
-  gap: 20px;
+  padding: 50px;
 }
