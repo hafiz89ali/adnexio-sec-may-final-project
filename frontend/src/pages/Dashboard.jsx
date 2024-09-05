@@ -1,6 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
+import SideNav from "../components/SideNav";
 import "../App.css";
 import "../styles/dashboardStyle.css";
+import iconMessage from "../assets/iconMessage.svg";
+import iconBell from "../assets/iconBell.svg";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -8,20 +11,30 @@ function Dashboard() {
     <>
       <body>
         <div className="side-nav">
-          <p>Side Navigation</p>
+          {/* <p>Side Navigation</p> */}
+          <SideNav />
         </div>
         <div className="main-area">
-          <p>Main Area</p>
           <div className="sub-main1">
             <div className="profile-sect">
-              <p>Profile Section</p>
+              <div className="profile-icon"></div>
+              <div className="greeting">
+                <h3>Selamat Datang</h3>
+                <h3>Afifah Aliya</h3>
+              </div>
             </div>
             <div className="comm-sect">
-              <p>Communication Section</p>
+              <a href="#">
+                <img src={iconMessage} alt="message" />
+              </a>
+              <a href="#">
+                <img src={iconBell} alt="notification" />
+              </a>
             </div>
           </div>
           <div className="action-sect">
             <p>Action Section</p>
+            <div></div>
           </div>
           <div className="content-area">
             <p>Contents Area</p>

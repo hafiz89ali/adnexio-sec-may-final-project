@@ -1,0 +1,29 @@
+a {
+  color: #fff0e1;
+}
+
+menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  list-style: none;
+}
+
+img {
+  width: 35px;
+}
+
+.sideNav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  width: 150px;
+  background-color: #0f6466;
+  gap: 50px;
+  padding: 50px;
+  border-radius: 15px;
+}
