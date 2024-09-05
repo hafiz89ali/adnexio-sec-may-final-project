@@ -4,6 +4,8 @@ import "../App.css";
 import "../styles/dashboardStyle.css";
 import iconMessage from "../assets/iconMessage.svg";
 import iconBell from "../assets/iconBell.svg";
+import iconAdd from "../assets/iconAdd.svg";
+import iconSetting from "../assets/iconSetting.svg";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -33,18 +35,29 @@ function Dashboard() {
             </div>
           </div>
           <div className="action-sect">
-            <p>Action Section</p>
-            <div></div>
+            {/* <p>Action Section</p> */}
+            <div className="action">
+              <img src={iconAdd} alt="" />
+            </div>
+            <div className="action">
+              <img src={iconSetting} alt="" />
+            </div>
           </div>
           <div className="content-area">
-            <p>Contents Area</p>
+            {/* <p>Contents Area</p> */}
             <h3>Rancangan Pengajaran Harian</h3>
-            <div>
+            {/* <div>
               <p>Sorting Area</p>
-            </div>
-            <div>
-              <p>Real Contents</p>
-            </div>
+              <div className="sort-area">
+                <label>Susun Mengikut</label>
+                <div className="dropdown-content">
+                  <a href="#">Kelas</a>
+                  <a href="#">Matapelajaran</a>
+                  <a href="#">Tarikh</a>
+                </div>
+              </div>
+            </div> */}
+            <div>{/* <p>Real Contents</p> */}</div>
           </div>
         </div>
       </body>
