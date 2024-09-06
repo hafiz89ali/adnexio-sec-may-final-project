@@ -11,6 +11,7 @@ button {
 }
 button:hover {
   border-color: brown;
+  color: brown;
 }
 button:focus,
 button:focus-visible {
@@ -20,6 +21,11 @@ button:focus-visible {
 .message a:link {
   text-decoration: none;
   color: brown;
+}
+
+.message a:hover {
+  text-decoration: none;
+  color: gray;
 }
 
 .login-container {
