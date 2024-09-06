@@ -1,19 +1,18 @@
 import pg from "pg";
-//import dotenv from "dotenv";
+import dotenv from "dotenv";
 import createUsersTable from "../models/user.js";
-import createLinksTable from "../models/link.js";
 
 const { Client } = pg;
 
 // load environment variables from .env file
-// dotenv.config();
+dotenv.config();
 
 const database = new Client({
-  user: "postgres",
-  password: "password",
-  host: "127.0.0.1",
-  port: 5432,
-  database: "adnexio-sec-may-project2",
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  database: process.env.DB_DATABASE,
 });
 
 async function testConnectionAndLog() {
@@ -25,7 +24,6 @@ async function testConnectionAndLog() {
     const currentDatabase = databaseName.rows[0].current_database;
     console.log(`Connected to ${currentDatabase} at ${currentTime}`);
     await createUsersTable();
-    await createLinksTable();
   } catch (err) {
     console.error("Error connecting to database", err);
   }
