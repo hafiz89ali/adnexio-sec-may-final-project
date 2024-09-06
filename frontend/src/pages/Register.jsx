@@ -6,7 +6,6 @@ import "../styles/loginStyle.css";
 
 function Register() {
   const { register, handleSubmit } = useForm();
-
   function onSubmit(data) {
     console.log(data);
   }

@@ -9,5 +9,8 @@
     "dev": "concurrently -n backend,frontend -c red,blue \"npm run dev:backend\" \"npm run dev:frontend\""
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
 }
