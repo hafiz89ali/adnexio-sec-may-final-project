@@ -7,12 +7,14 @@ WHERE created_by = $1
 ORDER BY created_at DESC;
 `;
 
-async function getLP(req, res) {
+async function getLessonPlan(req, res) {
   try {
     const createdBy = req.user.id;
     const dbRes = await database.query(query, [createdBy]);
     const lessonPlans = dbRes.rows;
+    const user = req.user.username;
     const data = {
+      username: user,
       message: "Lesson Plans fetched successfully",
       data: lessonPlans,
     };
@@ -22,4 +24,4 @@ async function getLP(req, res) {
   }
 }
 
-export default getLP;
+export default getLessonPlan;

@@ -4,9 +4,11 @@ import healthController from "../controllers/health.js";
 import authController from "../controllers/auth.js";
 import privacyController from "../controllers/privacy.js";
 import isAuth from "../middlewares/isAuth.js";
-import createLP from "../controllers/lessonPlan/createLP.js";
-import getLP from "../controllers/lessonPlan/getLP.js";
-import viewLP from "../controllers/lessonPlan/viewLP.js";
+import createLessonPlan from "../controllers/lessonPlan/createLessonPlan.js";
+import getLessonPlan from "../controllers/lessonPlan/getLessonPlan.js";
+import viewLessonPlan from "../controllers/lessonPlan/viewLessonPlan.js";
+import deleteLessonPlan from "../controllers/lessonPlan/deleteLessonPlan.js";
+import updateLessonPlan from "../controllers/lessonPlan/updateLessonPlan.js";
 
 const router = Router();
 
@@ -18,8 +20,10 @@ router.post("/register", authController.registerUser);
 router.post("/login", authController.loginUser);
 router.get("/public", privacyController.publicPath);
 router.get("/private", isAuth, privacyController.privatePath);
-router.post("/newlp", isAuth, createLP);
-router.get("/lessonplans", isAuth, getLP);
-router.get("/viewlp/:id", isAuth, viewLP);
+router.post("/newlessonplan", isAuth, createLessonPlan);
+router.get("/lessonplans", isAuth, getLessonPlan);
+router.get("/view/lessonplan/:id", isAuth, viewLessonPlan);
+router.put("/update/lessonplan/:id", isAuth, updateLessonPlan);
+router.delete("/delete/lessonplan/:id", isAuth, deleteLessonPlan);
 
 export default router;

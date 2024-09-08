@@ -6,7 +6,7 @@ VALUES ($1, $2, $3, $4, $5, $6, $7)
 RETURNING id, date, time, class_name, subject_name, title, lesson_plan, created_by, created_at;
 `;
 
-async function createLP(req, res) {
+async function createLessonPlan(req, res) {
   const { date, time, className, subjectName, title, lessonPlan } = req.body;
   // request user by using middleware
   const createdBy = req.user.id;
@@ -26,4 +26,4 @@ async function createLP(req, res) {
   }
 }
 
-export default createLP;
+export default createLessonPlan;

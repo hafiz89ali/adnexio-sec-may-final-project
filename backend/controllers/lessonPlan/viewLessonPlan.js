@@ -5,7 +5,7 @@ SELECT id, date, time, class_name, subject_name, title, lesson_plan, created_by,
 FROM lesson_plans
 WHERE id = $1
 `;
-async function viewLP(req, res) {
+async function viewLessonPlan(req, res) {
   try {
     const id = req.params.id;
     console.log(id);
@@ -21,4 +21,4 @@ async function viewLP(req, res) {
   }
 }
 
-export default viewLP;
+export default viewLessonPlan;
