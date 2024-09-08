@@ -12,7 +12,8 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
 import NewLessonPlan from "../pages/NewLP";
-import ViewLP from "../pages/ViewLP";
+import ViewLessonPlan from "../pages/ViewLP";
+import EditLessonPlan from "../pages/EditLessonPlan";
 
 function AppRoutes() {
   return (
@@ -26,8 +27,9 @@ function AppRoutes() {
           <Route path="/home" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/newlp" element={<NewLessonPlan />} />
-          <Route path="/viewlp/:id" element={<ViewLP />} />
+          <Route path="/new" element={<NewLessonPlan />} />
+          <Route path="/view/lessonplan/:id" element={<ViewLessonPlan />} />
+          <Route path="/edit/lessonplan/:id" element={<EditLessonPlan />} />
         </Route>
         <Route path="/dashboard" element={<PrivateRoutes />}>
           <Route index element={<Dashboard />} />

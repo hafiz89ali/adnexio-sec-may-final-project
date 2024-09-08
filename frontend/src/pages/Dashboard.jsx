@@ -82,7 +82,7 @@ function Dashboard() {
         <div className="action-sect">
           {/* <p>Action Section</p> */}
           <div className="action">
-            <Link to="/newlp">
+            <Link to="/new">
               <img src={iconAdd} alt="" />
             </Link>
           </div>
@@ -114,8 +114,8 @@ function Dashboard() {
                   <td>{link.title}</td>
                   <td>
                     <div className="actionButton">
-                      <Link to={`/viewlp/${link.id}`}>View</Link>
-                      <Link to={`/editlp/${link.id}`}>Edit</Link>
+                      <Link to={`/view/lessonplan/${link.id}`}>View</Link>
+                      <Link to={`/edit/lessonplan/${link.id}`}>Edit</Link>
                       <Link onClick={() => deleteLessonPlan(link.id)}>
                         Delete
                       </Link>

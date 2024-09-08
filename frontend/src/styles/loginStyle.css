@@ -34,7 +34,6 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  width: 100vw;
   gap: 40px;
 }
 

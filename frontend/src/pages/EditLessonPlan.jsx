@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { getApiWithToken } from "../utils/api";
 import Cookies from "js-cookie";
+import { getApiWithToken, putApiWithToken } from "../utils/api";
 import "../styles/viewLessonPlan.css";
 import iconHome from "../assets/iconHome.svg";
 import iconFileEdit from "../assets/iconFileEdit.svg";
 
-function ViewLessonPlan() {
+function EditLessonPlan() {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [lessonPlan, setLessonPlan] = useState({});
@@ -24,7 +24,7 @@ function ViewLessonPlan() {
       }
       const data = await serverRes.json();
       setLessonPlan(data.data);
-    } catch {
+    } catch (error) {
       console.error("Error at fetchLessonPlans");
     } finally {
       setIsLoading(false);
@@ -45,22 +45,30 @@ function ViewLessonPlan() {
           </Link>
         </div>
         <div className="action">
-          <Link to={`/edit/lessonplan/${id}`}>
+          <Link to={`/view/lessonplan/${id}`}>
             <img src={iconFileEdit} alt="" />
           </Link>
         </div>
       </div>
-      {/* <h1>View Lesson Plan</h1> */}
+      {/* <h1>Edit Lesson Plan</h1> */}
       <h1>{lessonPlan.title}</h1>
+      <input type="text" name="title" value={lessonPlan.title} />
       <div className="lessonPlanDetails">
         <p>{lessonPlan.subject_name}</p>
         <p>{lessonPlan.class_name}</p>
         <p>{lessonPlan.date}</p>
         <p>{lessonPlan.time}</p>
       </div>
-      <p>{lessonPlan.lesson_plan}</p>
+      <div className="lessonPlan">
+        <p>{lessonPlan.lesson_plan}</p>
+      </div>
+      <div className="edit">
+        <Link to={`/edit/lessonplan/${id}`}>
+          <button>Edit</button>
+        </Link>
+      </div>
     </div>
   );
 }
 
-export default ViewLessonPlan;
+export default EditLessonPlan;
