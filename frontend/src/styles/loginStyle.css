@@ -10,8 +10,8 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: brown;
-  color: brown;
+  background-color: brown;
+  /* color: brown; */
 }
 button:focus,
 button:focus-visible {

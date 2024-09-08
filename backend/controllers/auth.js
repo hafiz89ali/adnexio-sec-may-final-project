@@ -103,7 +103,7 @@ async function loginUser(req, res) {
       message: "Login successful!",
       token: token,
     };
-    return res.status(200).json({ resData });
+    return res.status(200).json(resData);
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }

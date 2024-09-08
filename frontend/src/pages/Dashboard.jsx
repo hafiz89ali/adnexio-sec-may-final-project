@@ -1,63 +1,111 @@
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import SideNav from "../components/SideNav";
+import Cookies from "js-cookie";
+import { getApiWithToken } from "../utils/api";
 import "../App.css";
 import "../styles/dashboardStyle.css";
-import iconMessage from "../assets/iconMessage.svg";
-import iconBell from "../assets/iconBell.svg";
 import iconAdd from "../assets/iconAdd.svg";
-import iconSetting from "../assets/iconSetting.svg";
+import iconPower from "../assets/iconPower.svg";
 
 function Dashboard() {
-  const navigate = useNavigate();
+  const [links, setLinks] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [userName, setUserName] = useState("");
+
+  async function fetchLinks() {
+    try {
+      setIsLoading(true);
+      const token = Cookies.get("authToken");
+      const serverRes = await getApiWithToken(
+        "http://localhost:3000/lessonplans",
+        token
+      );
+      if (!serverRes.ok) {
+        alert("You are not authorized to view this page.");
+      }
+      const data = await serverRes.json();
+      setLinks(data.data);
+      setUserName(data.username);
+    } catch (error) {
+      console.error("Error at fetchLessonPlans");
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  useEffect(function () {
+    fetchLinks();
+  }, []);
+
+  function formatDate(dateString) {
+    const datePart = dateString.split("T")[0];
+    const [year, month, day] = datePart.split("-");
+    return `${day}/${month}/${year}`;
+  }
+
+  function handleLogOut() {
+    Cookies.remove("authToken");
+    navigate("/login");
+  }
+
   return (
     <>
       <body>
-        <div className="side-nav">
-          {/* <p>Side Navigation</p> */}
-          <SideNav />
-        </div>
         <div className="main-area">
-          <div className="sub-main1">
-            <div className="profile-sect">
-              <div className="profile-icon"></div>
-              <div className="greeting">
-                <h3>Selamat Datang</h3>
-                <h3>Afifah Aliya</h3>
-              </div>
-            </div>
-            <div className="comm-sect">
-              <a href="#">
-                <img src={iconMessage} alt="message" />
-              </a>
-              <a href="#">
-                <img src={iconBell} alt="notification" />
-              </a>
+          <div className="profile-sect">
+            {/* <div className="profile-icon"></div> */}
+            <div className="greeting">
+              <h3 style={{ textTransform: "capitalize" }}>
+                Selamat Datang, {userName}
+              </h3>
             </div>
           </div>
+
           <div className="action-sect">
             {/* <p>Action Section</p> */}
             <div className="action">
-              <img src={iconAdd} alt="" />
+              <Link to="/newlp">
+                <img src={iconAdd} alt="" />
+              </Link>
             </div>
+
             <div className="action">
-              <img src={iconSetting} alt="" />
+              <Link onClick={handleLogOut}>
+                <img src={iconPower} alt="" />
+              </Link>
             </div>
           </div>
           <div className="content-area">
             {/* <p>Contents Area</p> */}
             <h3>Rancangan Pengajaran Harian</h3>
-            {/* <div>
-              <p>Sorting Area</p>
-              <div className="sort-area">
-                <label>Susun Mengikut</label>
-                <div className="dropdown-content">
-                  <a href="#">Kelas</a>
-                  <a href="#">Matapelajaran</a>
-                  <a href="#">Tarikh</a>
-                </div>
-              </div>
-            </div> */}
-            <div>{/* <p>Real Contents</p> */}</div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Subject</th>
+                  <th>Title</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {links.map((link) => (
+                  <tr key={link.id}>
+                    <td>{formatDate(link.date)}</td>
+                    <td>{link.time}</td>
+                    <td>{link.subject_name}</td>
+                    <td>{link.title}</td>
+                    <td>
+                      <div className="actionButton">
+                        <Link to={`/viewlp/${link.id}`}>View</Link>
+                        <Link to={`/editlp/${link.id}`}>Edit</Link>
+                        <Link to={`/deletelp/${link.id}`}>Delete</Link>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </body>

@@ -1,6 +1,7 @@
 import pg from "pg";
 import dotenv from "dotenv";
 import createUsersTable from "../models/user.js";
+import createLessonPlansTable from "../models/lessonPlan.js";
 
 const { Client } = pg;
 
@@ -24,6 +25,7 @@ async function testConnectionAndLog() {
     const currentDatabase = databaseName.rows[0].current_database;
     console.log(`Connected to ${currentDatabase} at ${currentTime}`);
     await createUsersTable();
+    await createLessonPlansTable();
   } catch (err) {
     console.error("Error connecting to database", err);
   }
