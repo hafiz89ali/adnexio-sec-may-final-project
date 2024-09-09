@@ -35,6 +35,14 @@ function ViewLessonPlan() {
     fetchLinks();
   }, []);
 
+  function formatDate(dateString) {
+    const datePart = dateString.split("T")[0];
+    const [year, month, day] = datePart.split("-");
+    return `${day}/${month}/${year}`;
+  }
+
+  const lessonPlanTime = formatDate(lessonPlan.time);
+
   return (
     <div className="viewLessonPlan">
       <div className="action-sect">
@@ -53,9 +61,9 @@ function ViewLessonPlan() {
       {/* <h1>View Lesson Plan</h1> */}
       <h1>{lessonPlan.title}</h1>
       <div className="lessonPlanDetails">
-        <p>{lessonPlan.subject_name}</p>
-        <p>{lessonPlan.class_name}</p>
-        <p>{lessonPlan.date}</p>
+        <p>{lessonPlan.subject_name} .</p>
+        <p>{lessonPlan.class_name} .</p>
+        <p>{lessonPlanTime} .</p>
         <p>{lessonPlan.time}</p>
       </div>
       <p>{lessonPlan.lesson_plan}</p>

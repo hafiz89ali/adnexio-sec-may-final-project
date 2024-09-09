@@ -11,8 +11,8 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
-import NewLessonPlan from "../pages/NewLP";
-import ViewLessonPlan from "../pages/ViewLP";
+import NewLessonPlan from "../pages/NewLessonPlan";
+import ViewLessonPlan from "../pages/ViewLessonPlan";
 import EditLessonPlan from "../pages/EditLessonPlan";
 
 function AppRoutes() {
