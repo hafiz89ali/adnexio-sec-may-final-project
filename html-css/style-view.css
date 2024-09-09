@@ -9,11 +9,24 @@ body {
 
 .viewer {
   display: flex;
+  flex-direction: column;
   background-color: white;
   border-radius: 15px;
   width: 90vh;
   height: fit-content;
-  flex-direction: column;
+  margin: auto auto;
+}
+
+.action {
+  display: flex;
+  justify-content: flex-end;
+  padding: 30px;
+  gap: 20px;
+}
+
+.action img {
+  width: 40px;
+  height: 40px;
 }
 
 .content {
@@ -23,5 +36,5 @@ body {
   justify-content: center;
   align-content: center;
   align-items: center;
-  padding: 50px;
+  padding: 30px;
 }
