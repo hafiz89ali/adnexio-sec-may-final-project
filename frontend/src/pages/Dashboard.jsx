@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { deleteApiWithToken, getApiWithToken } from "../utils/api";
+import { formatDate } from "../utils/dateFormat";
 import "../App.css";
 import "../styles/dashboardStyle.css";
 import iconAdd from "../assets/iconAdd.svg";
@@ -56,12 +57,6 @@ function Dashboard() {
   useEffect(function () {
     fetchLinks();
   }, []);
-
-  function formatDate(dateString) {
-    const datePart = dateString.split("T")[0];
-    const [year, month, day] = datePart.split("-");
-    return `${day}/${month}/${year}`;
-  }
 
   function handleLogOut() {
     Cookies.remove("authToken");

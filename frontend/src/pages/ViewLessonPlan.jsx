@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { getApiWithToken } from "../utils/api";
 import Cookies from "js-cookie";
+import dateFormat from "dateformat";
 import "../styles/viewLessonPlan.css";
 import iconHome from "../assets/iconHome.svg";
 import iconFileEdit from "../assets/iconFileEdit.svg";
@@ -35,14 +36,6 @@ function ViewLessonPlan() {
     fetchLinks();
   }, []);
 
-  function formatDate(dateString) {
-    const datePart = dateString.split("T")[0];
-    const [year, month, day] = datePart.split("-");
-    return `${day}/${month}/${year}`;
-  }
-
-  const lessonPlanTime = formatDate(lessonPlan.time);
-
   return (
     <div className="viewLessonPlan">
       <div className="action-sect">
@@ -63,7 +56,7 @@ function ViewLessonPlan() {
       <div className="lessonPlanDetails">
         <p>{lessonPlan.subject_name} .</p>
         <p>{lessonPlan.class_name} .</p>
-        <p>{lessonPlanTime} .</p>
+        <p>{dateFormat(lessonPlan.date, "dd/mm/yyyy")}</p>
         <p>{lessonPlan.time}</p>
       </div>
       <p>{lessonPlan.lesson_plan}</p>
