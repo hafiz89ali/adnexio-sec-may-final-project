@@ -14,6 +14,10 @@ const database = new Client({
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
   database: process.env.DB_DATABASE,
+  max: 20,
+  idleTimeoutMillis: 30000,
+  connectionTimeoutMillis: 2000,
+  ssl: process.env.DB_SSL,
 });
 
 async function testConnectionAndLog() {
