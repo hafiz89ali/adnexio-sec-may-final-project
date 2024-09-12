@@ -17,7 +17,7 @@ function ViewLessonPlan() {
       setIsLoading(true);
       const token = Cookies.get("authToken");
       const serverRes = await getApiWithToken(
-        `http://localhost:3000/view/lessonplan/${id}`,
+        `https://sec-final-project-deployment.onrender.com//view/lessonplan/${id}`,
         token
       );
       if (!serverRes.ok) {

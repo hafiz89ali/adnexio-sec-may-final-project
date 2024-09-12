@@ -18,7 +18,7 @@ function Dashboard() {
       setIsLoading(true);
       const token = Cookies.get("authToken");
       const serverRes = await getApiWithToken(
-        "http://localhost:3000/lessonplans",
+        "https://sec-final-project-deployment.onrender.com//lessonplans",
         token
       );
       if (!serverRes.ok) {
@@ -39,7 +39,7 @@ function Dashboard() {
       try {
         const token = Cookies.get("authToken");
         const serverRes = await deleteApiWithToken(
-          `http://localhost:3000/delete/lessonplan/${id}`,
+          `https://sec-final-project-deployment.onrender.com//delete/lessonplan/${id}`,
           token
         );
         if (!serverRes.ok) {

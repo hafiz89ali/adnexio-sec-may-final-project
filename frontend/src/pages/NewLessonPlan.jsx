@@ -13,7 +13,7 @@ function NewLessonPlan() {
       // setIsLoading(true);
       const token = Cookies.get("authToken");
       const res = await postApiWithToken(
-        "http://localhost:3000/newlessonplan",
+        "https://sec-final-project-deployment.onrender.com//newlessonplan",
         data,
         token
       );

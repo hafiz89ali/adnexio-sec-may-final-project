@@ -11,7 +11,10 @@ function Login() {
 
   async function loginApi(data) {
     try {
-      const res = await postApi("http://localhost:3000/login", data);
+      const res = await postApi(
+        "https://sec-final-project-deployment.onrender.com//login",
+        data
+      );
       if (!res.ok) {
         const serverError = await res.json();
         const message = serverError.error;

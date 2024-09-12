@@ -18,7 +18,7 @@ function EditLessonPlan() {
     try {
       const token = Cookies.get("authToken");
       const serverRes = await putApiWithToken(
-        `http://localhost:3000/edit/lessonplan/${id}`,
+        `https://sec-final-project-deployment.onrender.com//edit/lessonplan/${id}`,
         token,
         data
       );

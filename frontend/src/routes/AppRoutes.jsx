@@ -27,12 +27,12 @@ function AppRoutes() {
           <Route path="/home" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/new" element={<NewLessonPlan />} />
-          <Route path="/view/lessonplan/:id" element={<ViewLessonPlan />} />
-          <Route path="/edit/lessonplan/:id" element={<EditLessonPlan />} />
         </Route>
         <Route path="/dashboard" element={<PrivateRoutes />}>
           <Route index element={<Dashboard />} />
+          <Route path="/new" element={<NewLessonPlan />} />
+          <Route path="/view/lessonplan/:id" element={<ViewLessonPlan />} />
+          <Route path="/edit/lessonplan/:id" element={<EditLessonPlan />} />
         </Route>
         <Route path="*" element={<h1>404: Page not found</h1>} />
       </Routes>

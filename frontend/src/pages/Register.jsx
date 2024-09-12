@@ -9,7 +9,10 @@ function Register() {
 
   async function registerApi(data) {
     try {
-      const res = await postApi("http://localhost:3000/register", data);
+      const res = await postApi(
+        "https://sec-final-project-deployment.onrender.com//register",
+        data
+      );
       // Check if the response is not okay by using the ok property of the response object
       if (!res.ok) {
         const serverError = await res.json();
